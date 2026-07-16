@@ -12,5 +12,5 @@ services:
     volumes:
       - ${DATASET_ROOT:-.}/speedtest-tracker:/config
     ports:
-      - "80:80"
+      - "81:80"
     restart: unless-stopped

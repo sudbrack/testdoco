@@ -13,6 +13,7 @@ services:
         - url: https://github.com/sudbrack/testdoco.git
           reference: main
           interval: 1m
+          target: server1
       DATASET_ROOT: /root/dococd
       # - DOCO_GIT_ACCESS_TOKEN: your_token_here # Uncomment if repository is private
     volumes:
