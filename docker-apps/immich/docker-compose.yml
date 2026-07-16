@@ -1,0 +1,13 @@
+services:
+  immich-server:
+    image: ghcr.io/immich-app/immich-server:latest
+    container_name: immich_server
+    restart: unless-stopped
+    volumes:
+      # Simple fallback: mounts to host DATASET_ROOT on server, or local folder ./data
+      - ${DATASET_ROOT:-.}/immich/library:/usr/src/app/upload
+    environment:
+      # Reads directly from the git-committed .env file in the same directory
+      - DB_DATABASE_NAME=${DB_DATABASE_NAME}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}

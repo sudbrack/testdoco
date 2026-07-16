@@ -1,0 +1,9 @@
+services:
+  influxdb:
+    # Example structural change (non-alpine base image or different config layout)
+    image: influxdb:2.7
+    container_name: influxdb_server2
+    ports:
+      - "8086:8086"
+    volumes:
+      - ${DATASET_ROOT:-.}/influxdb/data-s2:/var/lib/influxdb2

@@ -1,0 +1,76 @@
+# .doco-cd.yaml (placed in Git repository root)
+
+# ==========================================
+# 1. IMMICH DEPLOYMENTS (Shared Compose, Server1 has Polling Disabled)
+# ==========================================
+name: immich-server1
+working_dir: docker-apps/immich
+compose_files:
+  - docker-compose.yml
+env_files:
+  - .env
+filter:
+  tags:
+    - server-1
+polling:
+  enabled: false   # Polling disabled on Server 1 (Trigger via Webhook / Manual API only)
+
+---
+
+name: immich-server2
+working_dir: docker-apps/immich
+compose_files:
+  - docker-compose.yml
+env_files:
+  - .env
+filter:
+  tags:
+    - server-2
+polling:
+  enabled: true
+  interval: 5m     # Polling enabled on Server 2
+
+---
+
+# ==========================================
+# 2. INFLUXDB DEPLOYMENTS (Different directories/compose files)
+# ==========================================
+name: influxdb-server1
+working_dir: docker-apps/influxdb/server1
+compose_files:
+  - compose.yml
+filter:
+  tags:
+    - server-1
+polling:
+  enabled: true
+  interval: 5m
+
+---
+
+name: influxdb-server2
+working_dir: docker-apps/influxdb/server2
+compose_files:
+  - compose.yml
+filter:
+  tags:
+    - server-2
+polling:
+  enabled: true
+  interval: 5m
+
+---
+
+# ==========================================
+# 3. COUCHDB DEPLOYMENT (Server 2 Only)
+# ==========================================
+name: couchdb-server2
+working_dir: docker-apps/couchdb
+compose_files:
+  - compose.yml
+filter:
+  tags:
+    - server-2
+polling:
+  enabled: true
+  interval: 5m

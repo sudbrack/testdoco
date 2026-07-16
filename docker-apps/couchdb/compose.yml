@@ -1,0 +1,11 @@
+services:
+  couchdb:
+    image: couchdb:3.3
+    container_name: couchdb_server2
+    ports:
+      - "5984:5984"
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=admin_password
+    volumes:
+      - ${DATASET_ROOT:-.}/couchdb/data:/opt/couchdb/data
