@@ -1,0 +1,19 @@
+# ==========================================
+# Server 1 Deployment Configurations
+# ==========================================
+- name: speedtest-tracker-server1
+  working_dir: docker-apps/speedtest-tracker
+  compose_files:
+    - docker-compose.yml
+  env_files:
+    - .env
+  polling:
+    enabled: false
+
+- name: influxdb-server1
+  working_dir: docker-apps/influxdb/server1
+  compose_files:
+    - compose.yml
+  polling:
+    enabled: true
+    interval: 5m

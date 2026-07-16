@@ -1,0 +1,28 @@
+# ==========================================
+# Server 2 Deployment Configurations
+# ==========================================
+- name: speedtest-tracker-server2
+  working_dir: docker-apps/speedtest-tracker
+  compose_files:
+    - docker-compose.yml
+  env_files:
+    - .env
+  polling:
+    enabled: true
+    interval: 5m
+
+- name: influxdb-server2
+  working_dir: docker-apps/influxdb/server2
+  compose_files:
+    - compose.yml
+  polling:
+    enabled: true
+    interval: 5m
+
+- name: couchdb-server2
+  working_dir: docker-apps/couchdb
+  compose_files:
+    - compose.yml
+  polling:
+    enabled: true
+    interval: 5m
