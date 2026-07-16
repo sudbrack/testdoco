@@ -15,7 +15,6 @@ services:
           interval: 1m
           target: server1
       DATASET_ROOT: /root/dococd
-      # - DOCO_GIT_ACCESS_TOKEN: your_token_here # Uncomment if repository is private
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./dococd-data:/data
