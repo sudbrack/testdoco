@@ -9,8 +9,6 @@ env_files:
   - .env
   - ../../.doco-cd.env
 reconciliation: true
-polling:
-  enabled: false
 
 ---
 
@@ -21,5 +19,3 @@ compose_files:
 env_files:
   - ../../../.doco-cd.env
 reconciliation: true
-polling:
-  enabled: false

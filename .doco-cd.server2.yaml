@@ -9,9 +9,6 @@ env_files:
   - .env
   - ../../.doco-cd.env
 reconciliation: true
-polling:
-  enabled: true
-  interval: 1m
 
 ---
 
@@ -22,9 +19,6 @@ compose_files:
 env_files:
   - ../../../.doco-cd.env
 reconciliation: true
-polling:
-  enabled: true
-  interval: 1m
 
 ---
 
@@ -34,6 +28,4 @@ compose_files:
   - compose.yml
 env_files:
   - ../../.doco-cd.env
-polling:
-  enabled: true
-  interval: 1m
+reconciliation: true
