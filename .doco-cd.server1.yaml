@@ -7,6 +7,7 @@ compose_files:
   - docker-compose.yml
 env_files:
   - .env
+  - ../../.doco-cd.env
 polling:
   enabled: false
 
@@ -16,6 +17,8 @@ name: influxdb-server1
 working_dir: docker-apps/influxdb/server1
 compose_files:
   - compose.yml
+env_files:
+  - ../../../.doco-cd.env
 polling:
   enabled: true
   interval: 5m

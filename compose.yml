@@ -14,7 +14,6 @@ services:
           reference: main
           interval: 1m
           target: server1
-      DATASET_ROOT: /root/dococd
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./dococd-data:/data
