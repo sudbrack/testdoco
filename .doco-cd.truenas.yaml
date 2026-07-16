@@ -1,0 +1,7 @@
+---
+
+name: influxdb
+working_dir: docker-apps/influxdb/truenas
+compose_files:
+  - compose.yml
+reconciliation: true
