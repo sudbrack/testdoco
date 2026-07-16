@@ -1,6 +1,6 @@
 services:
   speedtest-tracker:
-    image: linuxserver/speedtest-tracker:1.14.1
+    image: linuxserver/speedtest-tracker:1.14.2
     container_name: speedtest-tracker
     environment:
       - PUID=0

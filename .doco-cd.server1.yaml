@@ -22,5 +22,4 @@ env_files:
   - ../../../.doco-cd.env
 reconciliation: true
 polling:
-  enabled: true
-  interval: 5m
+  enabled: false
